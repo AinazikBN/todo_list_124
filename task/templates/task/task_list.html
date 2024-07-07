@@ -32,6 +32,16 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        .logout-task-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -67,5 +77,6 @@
         </tbody>
     </table>
     <button class="add-task-btn" onclick="location.href='{% url 'add_task' %}'">Add Task</button>
+    <button class="logout-task-btn" onclick="location.href='{% url 'logout' %}'">Log Out</button>
 </body>
 </html>
