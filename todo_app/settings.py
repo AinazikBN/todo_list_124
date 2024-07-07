@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from decouple import config 
+import os 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['2ecf-213-109-66-242.ngrok-free.app']
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="*").split()
 
 
 # Application definition
@@ -132,5 +133,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = 'login'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 CSRF_TRUSTED_ORIGINS = ['https://2ecf-213-109-66-242.ngrok-free.app']
